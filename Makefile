@@ -10,7 +10,7 @@ analysis:: flakes
 
 flakes:
 	@echo Searching for static errors...
-	@flake8 --statistics --count  gemparser tests
+	@flake8 --statistics --count  src/gemparser tests
 
 coveralls::
 	coveralls
