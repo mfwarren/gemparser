@@ -44,9 +44,9 @@ class Parser:
             array = cls.values(re.sub(r'[\[\]]', '', string))
             return [i.strip(":") for i in array]
         elif re.match(SYMBOL, string):
-            return re.sub(r':"\'', '', string)
+            return re.sub(r'[:"\']', '', string)
         elif re.match(STRING, string):
-            return re.sub(r'"\'', '', string)
+            return re.sub(r'["\']', '', string)
         elif re.match(BOOLEAN, string):
             return string == 'true'
         elif re.match(NIL, string):

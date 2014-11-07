@@ -3,7 +3,7 @@ import unittest
 import sys
 sys.path.append("./src/")
 
-from gemparser import Gemfile
+from gemparser import Gemfile, Parser
 
 
 class GemfileParserTests(unittest.TestCase):
@@ -73,6 +73,26 @@ class GemfileParserTests(unittest.TestCase):
         gemfile = Gemfile('gem("rake", ">= 0.8.7")  # Comment')
         self.assertEquals(gemfile.dependencies[0].name, 'rake')
         self.assertEquals(gemfile.dependencies[0].requirements, [">= 0.8.7"])
+
+    def test_symbol(self):
+        v = Parser.value(':dev')
+        self.assertEquals(v, 'dev')
+
+    def test_string(self):
+        v = Parser.value('"dev"')
+        self.assertEquals(v, 'dev')
+        v = Parser.value("'dev'")
+        self.assertEquals(v, 'dev')
+
+    def test_nil(self):
+        v = Parser.value('nil')
+        self.assertIsNone(v)
+
+    def test_boolean(self):
+        v = Parser.value('true')
+        self.assertTrue(v)
+        v = Parser.value('false')
+        self.assertFalse(v)
 
     # def test_odd_quotes(self):
     #     gemfile = Gemfile('gem %q<rake>, ">= 0.8.7"')
