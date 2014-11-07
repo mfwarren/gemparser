@@ -38,32 +38,26 @@ GEM_CALL = r"^[ \t]*gem\(?[ \t]*%s(?:[ \t]*,[ \t]*%s)?(?:[ \t]*,[ \t]*(?P<opts>%
 
 
 class Parser:
-    # def self.options(string)
-    #     {}.tap do |hash|
-    #       return hash unless string
-    #       pairs = Hash[*string.match(OPTIONS).captures.compact]
-    #       pairs.each{|k,v| hash[key(k)] = value(v) }
-    #     end
-    #   end
-    #
-    #   def self.key(string)
-    #     string.tr(%(:"'), "")
-    #   end
-    #
-    
     @classmethod
-    def value(string):
-        case string
-        when ARRAY then values(string.translate(None, "[]"))
-        when SYMBOL then string.translate(None, ":\"'")
-        when STRING then string.translate(None, "\"'")
-        when BOOLEAN then string == "true"
-        when NIL then nil
-        end
+    def value(cls, string):
+        if re.match(ARRAY, string):
+            array = cls.values(string.translate(None, "[]"))
+            return [i.strip(":") for i in array]
+        elif re.match(SYMBOL, string):
+            return string.translate(None, ":\"'")
+        elif re.match(STRING, string):
+            return string.translate(None, "\"'")
+        elif re.match(BOOLEAN, string):
+            return string == 'true'
+        elif re.match(NIL, string):
+            return None
 
-    def values(string)
-        string.strip.split(/[ \t]*,[ \t]*/).map{|v| value(v) }
-    end
+    @classmethod
+    def values(cls, string):
+        print 'values', string
+        print string.strip().split(",")
+        arr = string.strip().split(",")
+        return [cls.value(i.strip()) for i in arr]
 
 
 class Dependency:
@@ -73,12 +67,14 @@ class Dependency:
         self.options = opts
 
         if type(opts) is dict and 'type' in opts:
-            self.type = opts['type']
+            self.type = Parser.value(opts['type'])
         else:
             self.type = 'runtime'
 
         if type(opts) is dict and 'group' in opts:
-            self.groups = [opts['group']]
+            self.groups = Parser.value(opts['group'])
+            if type(self.groups) is str:
+                self.groups = [self.groups]
         else:
             self.groups = ['default']
 
@@ -122,5 +118,5 @@ class Gemfile:
         opts = re.search(pattern, opts).groups()
         opts = dict(zip(opts[0::2], opts[1::2]))
         opts.pop(None, None)
-        opts = {k.strip(':'): opts[k].strip(':') for k in opts}
+        opts = {k.strip(':'): opts[k] for k in opts}
         return opts
