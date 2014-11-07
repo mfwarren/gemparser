@@ -4,8 +4,7 @@ gemparser
 ==============  ===============  =========  ============
 VERSION         DOWNLOADS        TESTS      COVERAGE
 ==============  ===============  =========  ============
-|pip version|   |pip downloads|  |.. image:: https://travis-ci.org/mfwarren/gemparser.svg
-    :target: https://travis-ci.org/mfwarren/gemparser|   |coveralls|
+|pip version|   |pip downloads|  |travis|   |coveralls|
 ==============  ===============  =========  ============
 
 About
