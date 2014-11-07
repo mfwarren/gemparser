@@ -41,12 +41,12 @@ class Parser:
     @classmethod
     def value(cls, string):
         if re.match(ARRAY, string):
-            array = cls.values(string.translate(None, "[]"))
+            array = cls.values(re.sub(r'[\[\]]', '', string))
             return [i.strip(":") for i in array]
         elif re.match(SYMBOL, string):
-            return string.translate(None, ":\"'")
+            return re.sub(r':"\'', '', string)
         elif re.match(STRING, string):
-            return string.translate(None, "\"'")
+            return re.sub(r'"\'', '', string)
         elif re.match(BOOLEAN, string):
             return string == 'true'
         elif re.match(NIL, string):
