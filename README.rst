@@ -26,3 +26,12 @@ Credits
 .. _Buildout: http://www.buildout.org/
 .. _Distribute: http://pypi.python.org/pypi/distribute
 .. _`modern-package-template`: http://pypi.python.org/pypi/modern-package-template
+
+.. |travis| image:: https://travis-ci.org/mfwarren/gemparser.svg
+  :target: https://travis-ci.org/mfwarren/gemparser
+  :alt: Travis results
+
+.. |coveralls| image:: https://coveralls.io/repos/mfwarren/gemparser/badge.png
+  :target: https://coveralls.io/r/mfwarren/gemparser
+  :alt: Coveralls results_
+  
