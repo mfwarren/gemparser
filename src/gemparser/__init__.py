@@ -54,8 +54,6 @@ class Parser:
 
     @classmethod
     def values(cls, string):
-        print 'values', string
-        print string.strip().split(",")
         arr = string.strip().split(",")
         return [cls.value(i.strip()) for i in arr]
 
