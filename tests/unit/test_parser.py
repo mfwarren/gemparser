@@ -28,6 +28,15 @@ class GemfileParserTests(unittest.TestCase):
         self.assertEquals(gemfile.dependencies[0].name, 'pygment.rb')
         self.assertEquals(gemfile.dependencies[0].requirements, [">= 0.8.7"])
 
+    def test_multi_line(self):
+        gemfile = Gemfile('''gem "rake", ">= 0.8.7"
+                             gem "pygment.rb", ">= 0.9.7"''')
+        self.assertEquals(len(gemfile.dependencies), 2)
+        self.assertEquals(gemfile.dependencies[0].name, 'rake')
+        self.assertEquals(gemfile.dependencies[0].requirements, [">= 0.8.7"])
+        self.assertEquals(gemfile.dependencies[1].name, 'pygment.rb')
+        self.assertEquals(gemfile.dependencies[1].requirements, [">= 0.9.7"])
+
     def test_parses_non_requirment_gems(self):
         gemfile = Gemfile('gem "rake"')
         self.assertEquals(gemfile.dependencies[0].name, 'rake')

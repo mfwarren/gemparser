@@ -89,24 +89,15 @@ class Gemfile:
 
     @property
     def dependencies(self):
-        if self._dependencies:
-            return self._dependencies
-        self._dependencies = [i for i in self._gem_matches() if i is not None]
-        return self._dependencies
+        return [i for i in self._gem_matches() if i is not None]
 
     def _gem_matches(self):
-        if self._gems:
-            return self._gems
-        self._gems = self._matches(GEM_CALL)
-        return self._gems
+        return self._matches(GEM_CALL)
 
     def _matches(self, regex):
-        match = re.search(regex, self.content)
-        return [self._dependency(match), ]
+        return [self._dependency(match) for match in re.finditer(regex, self.content, re.MULTILINE)]
 
     def _dependency(self, match):
-        if match is None:
-            return None
         opts = self._parse_options(OPTIONS, match.group('opts'))
         return Dependency(match.group('name'), (match.group('req1'), match.group('req2')), opts)
 
