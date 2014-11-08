@@ -103,6 +103,12 @@ class GemfileParserTests(unittest.TestCase):
         v = Parser.value('false')
         self.assertFalse(v)
 
+    def test_newer_hash_syntax(self):
+        gemfile = Gemfile('gem "rake", type: :development')
+        self.assertEquals(gemfile.dependencies[0].type, "development")
+        gemfile = Gemfile('gem "rake", group: [:development, :test]')
+        self.assertEquals(gemfile.dependencies[0].groups, ["development", "test"])
+
     # def test_odd_quotes(self):
     #     gemfile = Gemfile('gem %q<rake>, ">= 0.8.7"')
     #     self.assertEquals(gemfile.dependencies[0].name, 'rake')
