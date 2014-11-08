@@ -1,11 +1,11 @@
 gemparser
 ==========================
 
-==============  ===============  =========  ============
-VERSION         DOWNLOADS        TESTS      COVERAGE
-==============  ===============  =========  ============
-|pip version|   |pip downloads|  |travis|   |coveralls|
-==============  ===============  =========  ============
+==============  ===============  =========  ============  ============
+VERSION         DOWNLOADS        TESTS      COVERAGE      REQUIREMENTS
+==============  ===============  =========  ============  ============
+|pip version|   |pip downloads|  |travis|   |coveralls|   |requirements|
+==============  ===============  =========  ============  ============
 
 About
 ====
@@ -34,4 +34,7 @@ Credits
 .. |coveralls| image:: https://coveralls.io/repos/mfwarren/gemparser/badge.png
   :target: https://coveralls.io/r/mfwarren/gemparser
   :alt: Coveralls results_
-  
+
+.. |requirements| image:: https://requires.io/github/mfwarren/gemparser/requirements.svg?branch=master
+     :target: https://requires.io/github/mfwarren/gemparser/requirements/?branch=master
+     :alt: Requirements Status
