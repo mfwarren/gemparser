@@ -10,7 +10,7 @@ VERSION         DOWNLOADS        TESTS      COVERAGE      REQUIREMENTS
 About
 ====
 
-gemparser is a library and command-line tool to parse ruby Gemfiles.  It is
+gemparser is a library to parse ruby Gemfiles.  It is
 useful for doing static analysis on Ruby based projects.
 
 documentation is coming soon...
@@ -26,6 +26,14 @@ Credits
 .. _Buildout: http://www.buildout.org/
 .. _Distribute: http://pypi.python.org/pypi/distribute
 .. _`modern-package-template`: http://pypi.python.org/pypi/modern-package-template
+
+.. |pip version| image:: https://pypip.in/v/gemparser/badge.png
+    :target: https://pypi.python.org/pypi/gemparser
+    :alt: Latest PyPI version
+
+.. |pip downloads| image:: https://pypip.in/d/gemparser/badge.png
+    :target: https://pypi.python.org/pypi/gemparser
+    :alt: Number of PyPI downloads
 
 .. |travis| image:: https://travis-ci.org/mfwarren/gemparser.svg
   :target: https://travis-ci.org/mfwarren/gemparser
