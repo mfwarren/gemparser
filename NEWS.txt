@@ -2,9 +2,9 @@
 News
 ====
 
-0.1a
+0.1
 -----
 
-*Release date: UNRELEASED*
+*Release date: Nov 10, 2014*
 
-* starting development
+* released first alpha

@@ -20,19 +20,26 @@ setup(name='gemparser',
     description="Parse Ruby Gemfiles",
     long_description=README + '\n\n' + NEWS,
     classifiers=[
+      'Development Status :: 3 - Alpha'
+      'Programming Language :: Python :: 2.6',
+      'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3.2',
+      'Programming Language :: Python :: 3.3',
+      'Programming Language :: Python :: 3.4',
+      'Programming Language :: Ruby'
+      'Intended Audience :: Developers',
+      'License :: OSI Approved :: MIT License',
+      'Operating System :: OS Independent',
+      'Topic :: Software Development :: Libraries :: Ruby Modules'
       # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     ],
     keywords='ruby gems gemfile gemspec',
     author='Matt Warren',
     author_email='matt.warren@gmail.com',
-    url='http://halotis.com',
+    url='https://github.com/mfwarren/gemparser',
     license='MIT',
-    packages=find_packages('src'),
+    packages=find_packages('src', exclude=['tests']),
     package_dir = {'': 'src'},include_package_data=True,
     zip_safe=False,
-    install_requires=install_requires,
-    entry_points={
-        'console_scripts':
-            ['gemparser=gemparser:main']
-    }
+    install_requires=install_requires
 )
