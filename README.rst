@@ -27,11 +27,11 @@ Credits
 .. _Distribute: http://pypi.python.org/pypi/distribute
 .. _`modern-package-template`: http://pypi.python.org/pypi/modern-package-template
 
-.. |pip version| image:: https://pypip.in/v/gemparser/badge.png
+.. |pip version| image:: https://img.shields.io/pypi/v/gemparser.svg
     :target: https://pypi.python.org/pypi/gemparser
     :alt: Latest PyPI version
 
-.. |pip downloads| image:: https://pypip.in/d/gemparser/badge.png
+.. |pip downloads| image:: https://img.shields.io/pypi/dm/gemparser.svg
     :target: https://pypi.python.org/pypi/gemparser
     :alt: Number of PyPI downloads
 
